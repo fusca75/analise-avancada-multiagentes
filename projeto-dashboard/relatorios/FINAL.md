@@ -4,7 +4,7 @@
 
 O Construtor, o Tester e o Revisor aprovaram a mesma versão na rodada 03. Os testes obrigatórios passaram, sem falhas ou skips, e não há pendências obrigatórias. O histórico das rodadas 01, 02 e 03 foi preservado em `relatorios/`.
 
-**Nota de publicação:** o push público contém somente documentação Markdown e `.gitignore`; o código do dashboard, as fontes CSV, os dados preparados, testes, imagens e ambiente local não foram incluídos. Esses arquivos permanecem no workspace original.
+**Nota de publicação:** o repositório inclui a documentação e os arquivos estáticos de `projeto-dashboard/site/`, incluindo `vendas.json` para o deploy. O CSV original, os scripts de preparo, os testes, as imagens e o ambiente local não foram incluídos. O JSON estático contém os registros usados pelo dashboard e será público junto com o site.
 
 ## Base e análise
 
@@ -36,7 +36,7 @@ node --test .\projeto-dashboard\tests\dashboard.test.mjs
 
 ### Identificação da versão
 
-Na execução do projeto, o workspace ainda não tinha histórico Git; os hashes SHA-256 abaixo identificam os artefatos aprovados antes desta publicação documental:
+Na execução do projeto, o workspace ainda não tinha histórico Git; os hashes SHA-256 abaixo identificam os artefatos aprovados antes da preparação do repositório para o Render:
 
 | Arquivo | SHA-256 |
 |---|---|
@@ -72,7 +72,7 @@ Inicie o servidor HTTP local para abrir o site:
 .\.venv\Scripts\python.exe -m http.server 8000 --directory .\projeto-dashboard\site
 ```
 
-Abra <http://localhost:8000>. Para encerrar, pressione **Ctrl+C** no terminal. A pasta `projeto-dashboard/site/` é a pasta publicável em hospedagem estática; a publicação não faz parte desta entrega.
+Abra <http://localhost:8000>. Para encerrar, pressione **Ctrl+C** no terminal. A pasta `projeto-dashboard/site/` é a pasta publicável em hospedagem estática e está incluída no repositório para deploy no Render. O arquivo `render.yaml` define a branch `main`, o comando sem etapa de build e o diretório publicável.
 
 ## Registros e observações
 

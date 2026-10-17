@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Painel interativo para explorar as vendas da papelaria por categoria e cidade.">
+    <title>Vendas da papelaria | Painel</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/dashboard.js" defer></script>
+  </head>
+  <body>
+    <header class="cabecalho">
+      <div class="largura-pagina cabecalho-conteudo">
+        <p class="sobretitulo">PAINEL DE VENDAS</p>
+        <h1>Vendas da papelaria</h1>
+        <p class="descricao-cabecalho">Explore os valores vendidos por categoria, mês e cidade.</p>
+        <p class="periodo" id="periodo-dados">Período: carregando dados…</p>
+      </div>
+    </header>
+
+    <main class="largura-pagina conteudo-principal">
+      <section class="cartao filtros" aria-labelledby="titulo-filtros">
+        <div class="titulo-secao">
+          <div>
+            <p class="sobretitulo">EXPLORAÇÃO</p>
+            <h2 id="titulo-filtros">Filtrar vendas</h2>
+          </div>
+          <button class="botao-limpar" id="limpar-filtros" type="button">Limpar filtros</button>
+        </div>
+        <div class="controles-filtro">
+          <div class="campo-filtro">
+            <label for="filtro-categoria">Categoria</label>
+            <select id="filtro-categoria" name="categoria">
+              <option value="">Todas as categorias</option>
+            </select>
+          </div>
+          <div class="campo-filtro">
+            <label for="filtro-cidade">Cidade</label>
+            <select id="filtro-cidade" name="cidade">
+              <option value="">Todas as cidades</option>
+            </select>
+          </div>
+        </div>
+        <p class="resumo-resultados" id="resumo-resultados" role="status" aria-live="polite">Carregando dados…</p>
+        <p class="erro-carregamento" id="erro-carregamento" role="alert" hidden></p>
+      </section>
+
+      <section class="indicadores" aria-label="Indicadores de vendas">
+        <article class="cartao indicador">
+          <h2>Valor total vendido</h2>
+          <p class="valor-indicador" id="indicador-total">—</p>
+          <p class="nota-indicador">Soma dos valores das vendas</p>
+        </article>
+        <article class="cartao indicador">
+          <h2>Quantidade de vendas</h2>
+          <p class="valor-indicador" id="indicador-vendas">—</p>
+          <p class="nota-indicador">Vendas identificadas por ID</p>
+        </article>
+        <article class="cartao indicador">
+          <h2>Ticket médio</h2>
+          <p class="valor-indicador" id="indicador-ticket">—</p>
+          <p class="nota-indicador">Valor total dividido pelas vendas</p>
+        </article>
+      </section>
+
+      <section class="graficos" aria-label="Gráficos de vendas">
+        <article class="cartao painel-grafico">
+          <div class="titulo-grafico">
+            <div>
+              <p class="sobretitulo">COMPARAÇÃO</p>
+              <h2>Valor vendido por categoria</h2>
+            </div>
+            <p class="unidade-grafico">Unidade: unidades monetárias da fonte; moeda não informada.</p>
+          </div>
+          <div class="area-grafico" id="grafico-categorias"></div>
+        </article>
+        <article class="cartao painel-grafico">
+          <div class="titulo-grafico">
+            <div>
+              <p class="sobretitulo">AO LONGO DO TEMPO</p>
+              <h2>Valor vendido por mês</h2>
+            </div>
+            <p class="unidade-grafico">Unidade: unidades monetárias da fonte; moeda não informada.</p>
+          </div>
+          <div class="area-grafico" id="grafico-mensal"></div>
+        </article>
+      </section>
+
+      <section class="cartao secao-tabela" aria-labelledby="titulo-tabela">
+        <div class="titulo-secao titulo-tabela">
+          <div>
+            <p class="sobretitulo">DETALHAMENTO</p>
+            <h2 id="titulo-tabela">Vendas selecionadas</h2>
+          </div>
+        </div>
+        <p class="mensagem-vazia" id="sem-resultados" role="status" hidden>
+          Nenhuma venda corresponde aos filtros selecionados. Altere os filtros ou escolha “Limpar filtros”.
+        </p>
+        <div class="tabela-rolagem" tabindex="0" role="region" aria-label="Tabela de vendas. Em telas pequenas, use as setas do teclado para navegar horizontalmente.">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">ID da venda</th>
+                <th scope="col">Data</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Produto</th>
+                <th scope="col" class="coluna-numero">Quantidade</th>
+                <th scope="col" class="coluna-numero">Preço unitário</th>
+                <th scope="col">Forma de pagamento</th>
+                <th scope="col" class="coluna-numero">Valor vendido</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-vendas"></tbody>
+          </table>
+        </div>
+        <p class="nota-tabela">Valor vendido não representa lucro. A fonte não informa a moeda.</p>
+      </section>
+    </main>
+
+    <footer class="rodape">
+      <div class="largura-pagina">
+        <p>Análise descritiva da base selecionada, de 01/01/2026 a 31/03/2026.</p>
+      </div>
+    </footer>
+  </body>
+</html>

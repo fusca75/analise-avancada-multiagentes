@@ -1,6 +1,6 @@
 # Dashboard de vendas da papelaria
 
-> **Nota sobre a publicação no GitHub:** este arquivo documenta a execução no workspace original. O repositório público foi limitado a Markdown; não contém o CSV, scripts, testes, dados preparados nem os arquivos do site. Os comandos abaixo funcionam na pasta de trabalho local que contém esses arquivos.
+> **Nota sobre a publicação no GitHub:** o repositório contém os documentos Markdown e os arquivos estáticos de `site/`, incluindo `site/dados/vendas.json` para o dashboard. O CSV original, o script de preparo, os testes e os dados CSV derivados não são publicados. Os comandos de preparo e teste abaixo são para o workspace local original.
 
 Este projeto prepara `papelaria_limpa.csv` com Python e pandas e apresenta as vendas em um site estático, sem banco de dados nem servidor de aplicação. O painel tem filtros por categoria e cidade, três indicadores, dois gráficos e uma tabela. Os valores não incluem símbolo de moeda porque a fonte não informa qual moeda foi usada.
 
@@ -43,3 +43,13 @@ Prepare os dados primeiro. Depois inicie o servidor estático:
 Abra <http://localhost:8000> no navegador. Para encerrar o servidor, volte ao terminal e pressione **Ctrl+C**. Não abra `index.html` diretamente como arquivo, pois o navegador precisa carregar o JSON por HTTP.
 
 Para hospedagem estática, publique o conteúdo da pasta `projeto-dashboard\site`. Essa pasta já contém o HTML, CSS, JavaScript e o JSON preparado.
+
+## Publicar no Render
+
+O arquivo `render.yaml`, na raiz do repositório, define um Static Site com publicação automática da branch `main` e diretório `projeto-dashboard/site`. No Render, escolha **New > Blueprint** e conecte este repositório. Para configurar um Static Site existente manualmente, use:
+
+- **Branch:** `main`
+- **Build Command:** `echo "No build step required"`
+- **Publish Directory:** `projeto-dashboard/site`
+
+O JSON em `site/dados/vendas.json` é servido junto com o dashboard e fica público. Para atualizar os dados do painel, regenere o JSON no workspace que contém o CSV e o script de preparo e envie a nova versão desse arquivo.

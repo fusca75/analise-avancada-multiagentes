@@ -1,4 +1,4 @@
-# Publicação documental: mantenha Markdown e este arquivo de regras.
+# Publicação documental e arquivos estáticos para o Render.
 *
 !*/
 !/.gitignore
@@ -22,3 +22,8 @@ venv/
 *.webp
 *.pdf
 *.log
+
+# O dashboard estático e a configuração de deploy são publicados.
+!projeto-dashboard/site/
+!projeto-dashboard/site/**
+!/render.yaml

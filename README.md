@@ -1,6 +1,6 @@
 # Análise avançada multiagentes
 
-Repositório de documentação sobre o fluxo de análise de dados e a construção de um dashboard de vendas de papelaria. O conteúdo público foi preparado para apresentar o processo, as skills e os relatórios em Markdown.
+Repositório com o fluxo de análise, as skills, os relatórios em Markdown e o site estático do dashboard de vendas da papelaria.
 
 ## O que está publicado
 
@@ -8,9 +8,13 @@ Repositório de documentação sobre o fluxo de análise de dados e a construç�
 - [`projeto-dashboard/analise.md`](projeto-dashboard/analise.md): perfil, definições, limpeza e limitações da análise.
 - [`projeto-dashboard/relatorios/`](projeto-dashboard/relatorios/): critérios e relatórios das rodadas, incluindo o status final.
 - Skills: [`explore-data`](.opencode/skills/explore-data/skill.md), [`data-visualization`](.opencode/skills/data-visualization/SKILL.md) e [`validate-data`](.opencode/validatedate/SKILL.md).
+- [`projeto-dashboard/site/`](projeto-dashboard/site/): HTML, CSS, JavaScript e JSON estático do dashboard.
+- [`render.yaml`](render.yaml): configuração Blueprint para publicar o site no Render.
 
 ## Recorte de publicação
 
-Este repositório contém documentação Markdown e `.gitignore`. Os CSVs, o ambiente `.venv`, dependências, imagens, scripts, testes, dados preparados e arquivos HTML/CSS/JavaScript do dashboard foram deixados fora da publicação. Eles permanecem no workspace local; portanto, os comandos de `projeto-dashboard/README.md` dependem desses arquivos locais e não executam a partir deste recorte documental sozinho.
+O repositório inclui documentação e somente a pasta estática necessária ao dashboard. O CSV original, o ambiente `.venv`, dependências, imagens, scripts de preparo e testes continuam fora da publicação. O arquivo `projeto-dashboard/site/dados/vendas.json` contém os registros usados pelo painel; como o site é estático, esse JSON e os dados nele contidos ficam acessíveis publicamente.
 
-Os arquivos-fonte e artefatos derivados foram preservados no workspace original. A pasta `projeto-dashboard/site/` local é o conteúdo publicável do dashboard estático; ela não foi incluída neste repositório documental.
+## Publicar no Render
+
+O Blueprint em `render.yaml` aponta para a branch `main` e publica `projeto-dashboard/site/`. No Render, crie um serviço por **New > Blueprint** e conecte este repositório. Se já existir um Static Site ligado ao repositório, confira estes valores nas configurações: branch `main`, Build Command `echo "No build step required"` e Publish Directory `projeto-dashboard/site`. Com o auto-deploy habilitado, novos pushes dos arquivos do site iniciam uma publicação.

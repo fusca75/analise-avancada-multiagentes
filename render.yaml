@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: analise-avancada-multiagentes-site
+    runtime: static
+    branch: main
+    buildCommand: echo "No build step required"
+    staticPublishPath: ./projeto-dashboard/site
+    autoDeployTrigger: commit
+    buildFilter:
+      paths:
+        - projeto-dashboard/site/**
