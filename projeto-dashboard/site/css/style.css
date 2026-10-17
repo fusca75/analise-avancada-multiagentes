@@ -1,6 +1,6 @@
 :root {
   color-scheme: light;
-  --fundo: #f3f6f8;
+  --fundo: #eaf3ea;
   --superficie: #ffffff;
   --texto: #172d3b;
   --texto-secundario: #526775;
@@ -49,7 +49,7 @@ select:focus-visible,
 .cabecalho {
   padding: 42px 0 36px;
   color: #ffffff;
-  background: linear-gradient(116deg, #123f59 0%, #17658a 68%, #2783a6 100%);
+  background: linear-gradient(116deg, #174b32 0%, #1f6543 68%, #2b7550 100%);
 }
 
 .cabecalho-conteudo {
